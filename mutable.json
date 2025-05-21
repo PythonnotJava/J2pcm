@@ -1,0 +1,15 @@
+{
+  "name": "Alice",
+  "age": 25,
+  "isStudent": false,
+  "grades": [90, 85, 82],
+  "profile": null,
+  "address": {
+    "city": "Beijing",
+    "K" : {
+
+    }
+  },
+  "pos" : null,
+  "z" : null
+}

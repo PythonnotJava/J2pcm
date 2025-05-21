@@ -1,0 +1,20 @@
+{
+  "Objective": {
+    "version": "1.0.0",
+    "description": "Nothing",
+    "main": "main.py",
+    "scripts": {
+      "test": "echo",
+      "args" : {
+        "a" : 12,
+        "b" : true,
+        "c" : [1, 2, 4]
+      }
+    },
+    "private": true
+  },
+  "Target" : {
+    "path" : "/",
+    "count" : 21
+  }
+}
