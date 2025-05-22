@@ -1,0 +1,2 @@
+[console_scripts]
+J2pcm = J2pcm.cli:cli
