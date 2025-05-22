@@ -3,7 +3,7 @@
   "age": 25,
   "isStudent": false,
   "grades": "",
-  "profile": null,
+  "scores": 100,
   "pos" : null,
   "z" : null
 }

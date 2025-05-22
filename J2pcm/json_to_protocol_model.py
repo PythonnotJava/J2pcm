@@ -1,7 +1,7 @@
 # Json Object converts to Protocol.Protocol is an interface implementation.
 from typing import Optional, Any
 
-from _global import TAB, _loadJson, _JsonSupportObjReplace
+from ._global import TAB, _loadJson, _JsonSupportObjReplace
 
 def generate_protocol_codes(
     jsonData : dict,
@@ -46,7 +46,7 @@ def generate_protocol_codes(
     code_str = "\n".join(lines) + "\n"
     return code_str
 
-def generate_protocol(
+def generate_protocol_class(
     fileName: str,
     output: str,
     clsName: str,
@@ -66,6 +66,8 @@ def generate_protocol(
         f.write(codes)
         f.close()
 
+__all__ = ['generate_protocol_codes', 'generate_protocol_class']
+
 if __name__ == '__main__':
-    generate_protocol('mutable.json', 'example/i.py', 'Testing', nullSafety=False)
-    generate_protocol('mutable.json', 'example/i_safe.py', 'Testing', nullSafety=True)
+    generate_protocol_class('example/mutable.json', 'example/i.py', 'Testing', nullSafety=False)
+    generate_protocol_class('example/mutable.json', 'example/i_safe.py', 'Testing', nullSafety=True)

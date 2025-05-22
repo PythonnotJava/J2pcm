@@ -1,0 +1,36 @@
+{
+  "Objective": {
+    "version": "1.0.0",
+    "description": "Nothing",
+    "main": "main.py",
+    "scripts": {
+      "test": "echo",
+      "args" : {
+        "a" : 12,
+        "b" : true,
+        "c" : [1, 2, 4],
+        "d" : [
+          {
+            "x" : 12,
+            "y" : 12
+          },
+           {
+            "x" : 32,
+            "y" : 3
+          }
+        ]
+      },
+      "Target" : {
+        "path" : "/",
+        "count" : 21
+      }
+    },
+    "private": true
+  },
+  "Target" : {
+    "path" : "/",
+    "count" : 21
+  },
+  "Plan" : "12",
+  "Talk" : {}
+}

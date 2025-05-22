@@ -1,9 +1,0 @@
-{
-  "name": "Alice",
-  "age": 25,
-  "isStudent": false,
-  "grades": "",
-  "profile": null,
-  "pos" : null,
-  "z" : null
-}

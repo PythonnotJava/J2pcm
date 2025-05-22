@@ -21,10 +21,7 @@ class Testing:
         self.z = z
 
     def toJson(self) -> dict:
-        target = {}
-        for key, value in self.__dict__.items():
-            target[key] = value
-        return target
+        return self.__dict__
 
     @classmethod
     def fromJson(cls, fileName : str, encoding : str = "u8") -> "Testing":
@@ -32,3 +29,5 @@ class Testing:
         return cls(**jsonData)
 
 __all__ = ["Testing"]
+
+print(Testing.fromJson('mutable.json').toJson())

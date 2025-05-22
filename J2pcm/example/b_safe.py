@@ -19,5 +19,3 @@ class Testing:
         return target
 
 __all__ = ["Testing"]
-
-print(Testing.toJson())

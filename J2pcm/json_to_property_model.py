@@ -1,7 +1,7 @@
 # Json Object converts to properties.
 from typing import Optional, Any
 
-from _global import TAB, _loadJson
+from ._global import TAB, _loadJson
 
 def generate_property_codes(
     jsonData: dict,
@@ -68,7 +68,7 @@ def generate_property_codes(
     code_str = "\n".join(lines) + "\n"
     return code_str
 
-def generate_property(
+def generate_property_class(
     fileName: str,
     output: str,
     clsName: str,
@@ -88,7 +88,9 @@ def generate_property(
         f.write(codes)
         f.close()
 
+__all__ = ['generate_property_codes', 'generate_property_class']
+
 if __name__ == '__main__':
-    generate_property('mutable.json', 'example/h.py', 'Testing', nullSafety=False)
-    generate_property('mutable.json', 'example/h_safe.py', 'Testing', nullSafety=True)
+    generate_property_class('example/mutable.json', 'example/h.py', 'Testing', nullSafety=False)
+    generate_property_class('example/mutable.json', 'example/h_safe.py', 'Testing', nullSafety=True)
 

@@ -1,6 +1,6 @@
 # Json Object converts to Data Model Class.
 from typing import Optional, Any
-from _global import _loadJson, TAB
+from ._global import _loadJson, TAB
 
 def generate_tyed_dict_codes(
     jsonData: dict,
@@ -63,7 +63,9 @@ def generate_tyed_dict_class(
         f.write(codes)
         f.close()
 
+__all__ = ['generate_tyed_dict_codes', 'generate_tyed_dict_class']
+
 if __name__ == '__main__':
-    generate_tyed_dict_class('mutable.json', 'example/f.py', 'Testing', total=True, headers='import typing')
-    generate_tyed_dict_class('mutable.json', 'example/g.py', 'Testing', total=False, headers='import typing')
-    generate_tyed_dict_class('mutable_leak.json', 'example/g_safe.py', 'Testing', total=False, headers='import typing', nullSafety=True)
+    generate_tyed_dict_class('example/mutable.json', 'example/f.py', 'Testing', total=True, headers='import typing')
+    generate_tyed_dict_class('example/mutable.json', 'example/g.py', 'Testing', total=False, headers='import typing')
+    generate_tyed_dict_class('example/mutable_leak.json', 'example/g_safe.py', 'Testing', total=False, headers='import typing', nullSafety=True)

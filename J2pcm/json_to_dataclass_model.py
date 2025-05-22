@@ -1,8 +1,8 @@
 # Json Object converts to dataclass.
 from typing import Optional, Any
 
-from _global import TAB, _loadJson, is_mutable_type_in_json
-from json_to_base_class_model import generate_base_class_codes
+from ._global import TAB, _loadJson, is_mutable_type_in_json
+from .json_to_base_class_model import generate_base_class_codes
 
 def generate_data_class_codes(
     jsonData: dict,
@@ -47,10 +47,7 @@ def generate_data_class_codes(
                     _insert_pos += 1
         # toJson Obj
         lines.append(f'\n{TAB}def toJson(self) -> dict:')
-        lines.append(f'{TAB}{TAB}target = {{}}')
-        lines.append(f'{TAB}{TAB}for key, value in self.__dict__.items():')
-        lines.append(f'{TAB}{TAB}{TAB}target[key] = value')
-        lines.append(f'{TAB}{TAB}return target')
+        lines.append(f'{TAB}{TAB}return self.__dict__')
         # from Json Obj
         lines.append(f'\n{TAB}@classmethod')
         lines.append(f'{TAB}def fromJson(cls, fileName : str, encoding : str = "u8") -> "{clsName}":')
@@ -92,8 +89,10 @@ def generate_data_class(
         f.write(codes)
         f.close()
 
+__all__ = ['generate_data_class_codes', 'generate_data_class']
+
 if __name__ == '__main__':
-    generate_data_class('mutable.json', 'example/c.py', "Testing", headers='import typing')
-    generate_data_class('immutable.json', 'example/d.py', 'Testing', headers='import typing')
-    generate_data_class('immutable.json', 'example/e.py', 'Testing', headers='import typing', frozen=True)
-    generate_data_class('mutable_leak.json', 'example/c_safe.py', 'Testing', nullSafety=True)
+    generate_data_class('example/mutable.json', 'example/c.py', "Testing", headers='import typing')
+    generate_data_class('example/immutable.json', 'example/d.py', 'Testing', headers='import typing')
+    generate_data_class('example/immutable.json', 'example/e.py', 'Testing', headers='import typing', frozen=True)
+    generate_data_class('example/mutable_leak.json', 'example/c_safe.py', 'Testing', nullSafety=True)

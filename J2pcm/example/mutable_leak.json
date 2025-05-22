@@ -1,0 +1,14 @@
+{
+  "name": "Ann",
+  "age": 22,
+  "isStudent": false,
+  "grades": [90, 85, 82],
+   "scores": [9, 8.4, 5],
+  "address": {
+    "city": "Unknow.",
+    "pos" : {
+    }
+  },
+  "pos" : null
+}
+
